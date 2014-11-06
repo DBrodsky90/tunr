@@ -42,6 +42,7 @@ post '/playlists/:id/add_song' do
 end
  
 post '/playlists/:id/remove_song' do
+  @songs = Song.all
   playlist = Playlist.find(params[:id])
   song = Song.find(params[:song_id])
   playlist.songs.destroy(song)
